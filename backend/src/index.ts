@@ -18,7 +18,7 @@ app.use(cors());
 connectDB();
 
 // APIのルーティングを設定する
-app.use("/api/habits", habitRouter);
+app.use("/habit", habitRouter);
 
 // サーバーを起動する
 app.listen(PORT, () => {

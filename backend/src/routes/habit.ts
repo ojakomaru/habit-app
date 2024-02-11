@@ -10,7 +10,7 @@ const router = express.Router();
 // 全ての習慣を取得するエンドポイント
 router.get("/", async (req, res) => {
   try {
-    const habits = await Habit.find();
+    const habits = await Habit.find({});
     res.json(habits);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -22,9 +22,9 @@ router.post("/", async (req, res) => {
   try {
     const habit = new Habit(req.body);
     await habit.save();
-    res.status(201).json(habit);
+   return res.status(201).json(habit);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: err.message });
   }
 });
 
@@ -33,7 +33,7 @@ router.get("/:id", async (req, res) => {
   try {
     const habit = await Habit.findById(req.params.id);
     if (!habit) {
-      res.status(404).json({ message: "Habit not found" });
+      res.status(404).json({ message: "習慣がありませんでした" });
     } else {
       res.json(habit);
     }
@@ -49,7 +49,7 @@ router.put("/:id", async (req, res) => {
       new: true,
     });
     if (!habit) {
-      res.status(404).json({ message: "Habit not found" });
+      res.status(404).json({ message: "習慣がありませんでした" });
     } else {
       res.json(habit);
     }
@@ -63,9 +63,9 @@ router.delete("/:id", async (req, res) => {
   try {
     const habit = await Habit.findByIdAndDelete(req.params.id);
     if (!habit) {
-      res.status(404).json({ message: "Habit not found" });
+      res.status(404).json({ message: "習慣がありませんでした" });
     } else {
-      res.json({ message: "Habit deleted" });
+      res.json({ message: "習慣を削除しました。" });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });

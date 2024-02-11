@@ -15,7 +15,7 @@ interface Habit {
 }
 
 // バックエンドのAPIのURLを設定する
-const API_URL = "http://localhost:3001/api/habits";
+const API_URL = "http://localhost:3210/habit";
 
 // トップページのコンポーネントを定義する
 const IndexPage = () => {
