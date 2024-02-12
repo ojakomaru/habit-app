@@ -1,25 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, CardContent, Checkbox, Typography } from "@mui/material";
-import DeterminateLinearProgress from "./components/DeterminateLinearProgress";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { format } from 'date-fns';
 import { Line } from "react-chartjs-2";
 import React from "react";
+import { Habit } from "../interface/Habit";
+import DeterminateLinearProgress from "./DeterminateLinearProgress";
 
-// 習慣のデータモデルを定義する
-interface Habit {
-  id: number; // 習慣のID
-  name: string; // 習慣の名前
-  description: string; // 習慣の説明
-  frequency: number; // 習慣の頻度（1日、1週間、1ヶ月など）
-  unit: string; // 習慣の単位（回、分、時間など）
-  goal: number; // 習慣の目標値
-  progress: number; // 習慣の進捗値
-  createdAt: Date; // 習慣の作成日時
-  updatedAt: Date; // 習慣の更新日時
-}
 
 // バックエンドのAPIのURLを設定する
 const API_URL = "http://localhost:3210/habit";
