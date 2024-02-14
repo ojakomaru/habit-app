@@ -6,7 +6,7 @@ import "react-day-picker/dist/style.css";
 import { format } from 'date-fns';
 import { Line } from "react-chartjs-2";
 import React from "react";
-import { Habit } from "../interface/Habit";
+import { Habit } from "../types/Habit";
 import DeterminateLinearProgress from "./DeterminateLinearProgress";
 
 
