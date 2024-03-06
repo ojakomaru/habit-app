@@ -7,6 +7,7 @@ export default withAuth(
     const token = await getToken({ req });
     const isAuth = !!token;
     const isAuthPage =
+      // Stringに変換されたsearchStringの要素のシーケンスが、その位置から始まるこのオブジェクトの対応する要素（Stringに変換された）と同じであればtrueを返す。そうでなければ偽を返す。
       req.nextUrl.pathname.startsWith("/signin") ||
       req.nextUrl.pathname.startsWith("/signup");
 
