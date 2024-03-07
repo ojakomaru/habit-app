@@ -10,19 +10,18 @@ export const EXTERNAL_LINK_PROPS = {
   rel: 'noopener noreferrer',
 };
 
-export interface AppLinkProps extends Omit<MuiLinkProps, 'href'>, LinkProps {
+export interface AppLinkProps extends MuiLinkProps {
   children: ReactNode;
-  to?: string;
+  href?: string;
   openInNewTab?: boolean;
 }
 
 /**
  * アプリ内ナビゲーションのリンクを再構築。"to "プロップによる内部リンクと "href "プロップによる外部リンクをサポート。
  * @component AppLink
- * @param {object|function} children - content to wrap with <a> tag
- * @param {string} [to] - internal link URI
- * @param {string} [href] - external link URI
- * @param {boolean} [openInNewTab] - link will be opened in new tab when true
+ * @param children - コンテント
+ * @param href - external link URI
+ * @param openInNewTab - trueの場合、リンクは新しいタブで開かれる
  */
 const AppLink = forwardRef<any, AppLinkProps>(
   (
@@ -30,7 +29,7 @@ const AppLink = forwardRef<any, AppLinkProps>(
       children,
       color = 'textSecondary',
       underline = 'hover',
-      to = '',
+      href = '/',
       openInNewTab = false, // デフォルトで外部リンクを新しいタブで開く
       ...restOfProps
     },
@@ -43,7 +42,7 @@ const AppLink = forwardRef<any, AppLinkProps>(
       ...restOfProps,
     };
     return (
-      <MuiLink ref={ref} component={Link} to={to as string} {...propsToRender}>
+      <MuiLink ref={ref} component={Link} href={href as string} {...propsToRender}>
         {children}
       </MuiLink>
     );
