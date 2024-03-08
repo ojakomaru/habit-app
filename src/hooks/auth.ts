@@ -1,5 +1,6 @@
+'use client';
 import { useCallback, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useAppStore } from '../store';
 
 type CurrentUser = {
@@ -11,8 +12,8 @@ type CurrentUser = {
 };
 
 /**
- * Hook to get currently logged user
- * @returns {object | undefined} user data as object or undefined if user is not logged in
+ * 現在ログインしているユーザーを取得するフック
+ * @returns {object | undefined}
  */
 export function useCurrentUser(): CurrentUser | undefined {
   const [state] = useAppStore();
@@ -20,8 +21,8 @@ export function useCurrentUser(): CurrentUser | undefined {
 }
 
 /**
- * Hook to detect is current user authenticated or not
- * @returns {boolean} true if user is authenticated, false otherwise
+ * 現在のユーザーが認証済みかどうかを検出するフック
+ * @returns {boolean} ユーザーが認証されていればtrue、そうでなければfalse
  */
 export function useIsAuthenticated() {
   const [state] = useAppStore();
@@ -34,11 +35,11 @@ export function useIsAuthenticated() {
 }
 
 /**
- * Returns event handler to Logout current user
- * @returns {function} calling this event logs out current user
+ * 現在のユーザーをログアウトするイベントハンドラを返します。
+ * @returns {function} ログアウトするためのイベントハンドラ
  */
 export function useEventLogout() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [, dispatch] = useAppStore();
 
   return useCallback(() => {
@@ -46,12 +47,12 @@ export function useEventLogout() {
     // sessionStorageDelete('access_token');
 
     dispatch({ type: 'LOG_OUT' });
-    navigate('/', { replace: true }); // Redirect to home page by reloading the App
-  }, [dispatch, navigate]);
+    router.replace('/'); // リロードでホームへリダイレクト
+  }, [dispatch, router]);
 }
 
 /**
- * Adds watchdog and calls different callbacks on user login and logout
+ * ウォッチドッグを追加し、ユーザーのログインとログアウト時に異なるコールバックを呼び出す
  * @param {function} afterLogin callback to call after user login
  * @param {function} afterLogout callback to call after user logout
  */

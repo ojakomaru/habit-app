@@ -13,6 +13,11 @@ export const DARK_THEME: ThemeOptions = {
     },
     ...PALETTE_COLORS,
   },
+
+  spacing: 8,
+  shape: {
+    borderRadius: 4,
+  },
 };
 
 export default DARK_THEME;

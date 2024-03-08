@@ -8,9 +8,9 @@ import { localStorageGet } from '../utils/localStorage';
  * AppState structure and initial values
  */
 export interface AppStoreState {
-  darkMode: boolean;
-  isAuthenticated: boolean;
-  currentUser?: object | undefined;
+  darkMode: boolean; // テーマモード
+  isAuthenticated: boolean; // ログイン済み判定
+  currentUser?: object | undefined; // ログインユーザー
 }
 const INITIAL_APP_STATE: AppStoreState = {
   darkMode: false, // AppStore の useMediaQuery('(prefers-color-scheme: dark)' によってオーバーライドされる。
@@ -24,13 +24,9 @@ type AppContextReturningType = [AppStoreState, Dispatch<any>];
 const AppContext = createContext<AppContextReturningType>([INITIAL_APP_STATE, () => null]);
 
 /**
- * Main global Store as HOC with React Context API
- *
- * import {AppStoreProvider} from './store'
- * ...
- * <AppStoreProvider>
- *  <App/>
- * </AppStoreProvider>
+ * React Context APIを使用したHOCとしてのメイングローバルストア
+ * @param - darkMode ローカルストレージを検索してなければユーザーデバイスのメディアクエリに従って設定
+ * @description - テーマモードとユーザーのAuthenticationを管理する
  */
 const AppStoreProvider: FC<PropsWithChildren> = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -49,10 +45,6 @@ const AppStoreProvider: FC<PropsWithChildren> = ({ children }) => {
 
 /**
  * 関数コンポーネントでAppStoreを使用するフック
- *
- * import {useAppStore} from './store'
- * ...
- * const [state, dispatch] = useAppStore();
  */
 const useAppStore = (): AppContextReturningType => useContext(AppContext);
 

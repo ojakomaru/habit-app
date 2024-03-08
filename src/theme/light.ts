@@ -13,6 +13,10 @@ export const LIGHT_THEME: ThemeOptions = {
     },
     ...PALETTE_COLORS,
   },
+  spacing: 8,
+  shape: {
+    borderRadius: 4,
+  },
 };
 
 export default LIGHT_THEME;

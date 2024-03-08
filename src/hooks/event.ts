@@ -1,9 +1,10 @@
+'use client';
 import { useCallback } from 'react';
 import { useAppStore } from '../store';
 
 /**
- * Returns event handler to toggle Dark/Light modes
- * @returns {function} calling this event toggles dark/light mode
+ * Dark/Lightモードを切り替えるイベントハンドラを返します。
+ * @returns {function} このイベントを呼び出すと、ダーク／ライトモードが切り替わる
  */
 export function useEventSwitchDarkMode() {
   const [state, dispatch] = useAppStore();
