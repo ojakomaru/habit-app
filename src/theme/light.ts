@@ -8,7 +8,7 @@ export const LIGHT_THEME: ThemeOptions = {
   palette: {
     mode: 'light',
     background: {
-      paper: '#f5f5f5', // Gray 100 - Background of "Paper" based component
+      paper: '#c0dbee', //Background of "Paper" based component
       default: '#FFFFFF',
     },
     ...PALETTE_COLORS,

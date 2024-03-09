@@ -19,7 +19,9 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
-
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import DeleteIcon from '@mui/icons-material/Delete';
 const APP_ICON_SIZE = 24;
 
 /**
@@ -44,6 +46,9 @@ export const ICONS: Record<string, ComponentType> = {
   search: SearchIcon,
   info: InfoIcon,
   home: HomeIcon,
+  add: AddIcon,
+  delete: DeleteIcon,
+  remove: RemoveIcon,
   account: AccountCircle,
   signup: PersonAddIcon,
   login: PersonIcon,

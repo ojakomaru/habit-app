@@ -8,6 +8,9 @@ import DepositWithdraw from '../components/base/DepositWithdraw';
 import SalesByCountries from '../components/base/SalesByCountries';
 import TotalEarning from '../components/base/TotalEarning';
 import WeeklyOverview from '../components/base/WeeklyOverview';
+import Table from '../components/base/Table';
+import StatisticsCard from '../components/base/StatisticsCard';
+import Spinner from '../components/Spinner/Spinner';
 
 export default function Home() {
   const modeChange = useEventSwitchDarkMode();
@@ -26,6 +29,7 @@ export default function Home() {
               Primary
             </Typography>
             <Button color="inherit">Login</Button>
+            <Spinner />
           </Toolbar>
         </AppBar>
       </Box>
@@ -46,6 +50,9 @@ export default function Home() {
       </Snackbar>
       <DepositWithdraw />
       <SalesByCountries />
+      <StatisticsCard />
+      <Table />
+      {/* <TotalEarning />カスタムカラーを用意していないため保留 */}
       <WeeklyOverview />
     </>
   );

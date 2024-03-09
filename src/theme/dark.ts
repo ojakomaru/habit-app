@@ -8,8 +8,8 @@ export const DARK_THEME: ThemeOptions = {
   palette: {
     mode: 'dark',
     background: {
-      paper: '#424242', // Gray 800 - Background of "Paper" based component
-      default: '#121212',
+      paper: '#0a2458', // Background of "Paper" based component
+      default: '#091d32',
     },
     ...PALETTE_COLORS,
   },
