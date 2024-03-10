@@ -1,5 +1,5 @@
 'use client';
-import { Alert, Button, AppBar, Box, Fab, IconButton, Snackbar, Stack, Toolbar, Typography } from '@mui/material';
+import { Alert, AppBar, Box, Fab, IconButton, Snackbar, Stack, Toolbar } from '@mui/material';
 import { useAppStore } from '../store';
 import AppIcon from '../components/ui/AppIcon/AppIcon';
 import { AppLink } from '../components/ui/AppLink';
@@ -10,7 +10,11 @@ import TotalEarning from '../components/base/TotalEarning';
 import WeeklyOverview from '../components/base/WeeklyOverview';
 import Table from '../components/base/Table';
 import StatisticsCard from '../components/base/StatisticsCard';
-import Spinner from '../components/Spinner/Spinner';
+import Spinner from '../components/ui/Spinner/Spinner';
+import { Typography } from '../components/ui/Typography';
+import { Button } from '../components/ui/Button';
+import AppAlert from '../components/ui/AppAlert';
+import FullWidthTabs from '../components/ui/AppFab/AppFab';
 
 export default function Home() {
   const modeChange = useEventSwitchDarkMode();
@@ -33,13 +37,23 @@ export default function Home() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Alert severity="info">infoカラーのサンプル</Alert>
+      <AppAlert title='Info' variant="standard" severity="info">infoカラーのサンプル</AppAlert>
+      <AppAlert title='ここがタイトルです' severity="warning">warningカラーのサンプル</AppAlert>
+      <AppAlert severity="error">errorカラーのサンプル</AppAlert>
+      <AppAlert severity="success">successカラーのサンプル</AppAlert>
+      <FullWidthTabs />
       <Stack direction="row" spacing={2} m={2}>
         <Button variant="outlined" color="success" onClick={handleModeChange}>
           Successボタン
         </Button>
         <Button variant="contained" color="error">
           Errorボタン
+        </Button>
+        <Button variant="outlined" color="primary">
+          Primaryボタン
+        </Button>
+        <Button variant="text" color="noticeRed">
+          NoticeRedボタン
         </Button>
       </Stack>
       <Fab sx={{ position: 'absolute', bottom: 16, right: 16 }} color="secondary" aria-label="add">

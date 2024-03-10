@@ -28,6 +28,6 @@ const noticeRed: SimplePaletteColorOptions = {
 export const PALETTE_COLORS = {
   primary: COLOR_PRIMARY,
   secondary: COLOR_SECONDARY,
-  success: { main: '#312114' },
+  // success: { main: '#312114' },
   noticeRed: noticeRed,
 };

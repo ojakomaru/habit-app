@@ -1,16 +1,17 @@
 'use client';
 import { FC, ReactNode, useMemo } from 'react';
-import { ButtonProps } from '@mui/material';
+import { Button as MuiButton, ButtonProps } from '@mui/material';
 import { AppIcon } from '../AppIcon';
-import CustomButton from '../ButtonBase/ButtonBase';
 
-const APP_BUTTON_VARIANT = 'contained';
-
-const MUI_BUTTON_COLORS = ['inherit', 'primary', 'secondary', 'success', 'error', 'info', 'warning'];
-
-const DEFAULT_SX_VALUES = {
-  margin: 1, // デフォルトでは、AppButtonの四方にtheme.spacing(1)のマージン
-};
+const MUI_BUTTON_COLORS = [
+  'inherit',
+  'primary',
+  'secondary',
+  'success',
+  'error',
+  'info',
+  'warning',
+];
 
 export interface AppButtonProps extends Omit<ButtonProps, 'color' | 'endIcon' | 'startIcon'> {
   color?: string; // Not only 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
@@ -36,19 +37,29 @@ const Button: FC<AppButtonProps> = ({
   component: propComponent,
   endIcon,
   startIcon,
-  sx: propSx = DEFAULT_SX_VALUES,
+  sx: propSx = { margin: 1 }, // デフォルトでは、AppButtonの四方にtheme.spacing(1)のマージン
   text,
-  variant = APP_BUTTON_VARIANT,
+  variant = 'contained',
   ...restOfProps
 }) => {
   // startIconが文字列かコンポーネントで設定されていなければundefined
   const iconStart: ReactNode = useMemo(
-    () => (!startIcon ? undefined : typeof startIcon === 'string' ? <AppIcon icon={String(startIcon)} /> : startIcon),
+    () =>
+      !startIcon ? undefined : typeof startIcon === 'string' ? (
+        <AppIcon icon={String(startIcon)} />
+      ) : (
+        startIcon
+      ),
     [startIcon]
   );
 
   const iconEnd: ReactNode = useMemo(
-    () => (!endIcon ? undefined : typeof endIcon === 'string' ? <AppIcon icon={String(endIcon)} /> : endIcon),
+    () =>
+      !endIcon ? undefined : typeof endIcon === 'string' ? (
+        <AppIcon icon={String(endIcon)} />
+      ) : (
+        endIcon
+      ),
     [endIcon]
   );
 
@@ -62,16 +73,16 @@ const Button: FC<AppButtonProps> = ({
   };
 
   return (
-    <CustomButton
+    <MuiButton
       color={colorToRender}
       endIcon={iconEnd}
       startIcon={iconStart}
       sx={sxToRender}
       variant={variant}
-      { ...restOfProps}
+      {...restOfProps}
     >
       {children || text}
-    </CustomButton>
+    </MuiButton>
   );
 };
 
