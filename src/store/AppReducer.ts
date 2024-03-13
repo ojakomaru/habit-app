@@ -1,5 +1,5 @@
-import { localStorageSet } from '../utils/localStorage';
-import { AppStoreState } from './AppStore';
+import { localStorageSet } from '../utils/localStorage'
+import { type AppStoreState } from './AppStore'
 
 /**
  * Reduxスタイル "のアクションを使ったグローバルAppStore用レデューサー
@@ -13,31 +13,31 @@ const AppReducer: React.Reducer<AppStoreState, any> = (state, action) => {
     case 'CURRENT_USER':
       return {
         ...state,
-        currentUser: action?.currentUser || action?.payload,
-      };
+        currentUser: action?.currentUser || action?.payload
+      }
     case 'SIGN_UP':
     case 'LOG_IN':
       return {
         ...state,
-        isAuthenticated: true,
-      };
+        isAuthenticated: true
+      }
     case 'LOG_OUT':
       return {
         ...state,
         isAuthenticated: false,
-        currentUser: undefined, // 以前のユーザーデータもリセット
-      };
+        currentUser: undefined // 以前のユーザーデータもリセット
+      }
     case 'DARK_MODE': {
-      const darkMode = action?.darkMode ?? action?.payload;
-      localStorageSet('darkMode', darkMode);
+      const darkMode = action?.darkMode ?? action?.payload
+      localStorageSet('darkMode', darkMode)
       return {
         ...state,
-        darkMode,
-      };
+        darkMode
+      }
     }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default AppReducer;
+export default AppReducer

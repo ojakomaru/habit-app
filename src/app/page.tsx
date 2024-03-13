@@ -1,8 +1,15 @@
 'use client';
-import { Alert, AppBar, Box, Fab, IconButton, Snackbar, Stack, Toolbar } from '@mui/material';
-import { useAppStore } from '../store';
+import {
+  Alert,
+  AppBar,
+  Box,
+  Fab,
+  IconButton,
+  Snackbar,
+  Stack,
+  Toolbar,
+} from '@mui/material';
 import AppIcon from '../components/ui/AppIcon/AppIcon';
-import { AppLink } from '../components/ui/AppLink';
 import { useEventSwitchDarkMode } from '../hooks';
 import DepositWithdraw from '../components/base/DepositWithdraw';
 import SalesByCountries from '../components/base/SalesByCountries';
@@ -14,7 +21,9 @@ import Spinner from '../components/ui/Spinner/Spinner';
 import { Typography } from '../components/ui/Typography';
 import { Button } from '../components/ui/Button';
 import AppAlert from '../components/ui/AppAlert';
-import FullWidthTabs from '../components/ui/AppFab/AppFab';
+import Slider from '../components/ui/Slider';
+import AppFab from '../components/ui/AppFab/AppFab';
+import AlertSnackbar from '../components/ui/Snackbar/AlertSnackbar';
 
 export default function Home() {
   const modeChange = useEventSwitchDarkMode();
@@ -26,7 +35,13 @@ export default function Home() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
               <AppIcon icon="menu" />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -37,11 +52,10 @@ export default function Home() {
           </Toolbar>
         </AppBar>
       </Box>
-      <AppAlert title='Info' variant="standard" severity="info">infoカラーのサンプル</AppAlert>
-      <AppAlert title='ここがタイトルです' severity="warning">warningカラーのサンプル</AppAlert>
-      <AppAlert severity="error">errorカラーのサンプル</AppAlert>
-      <AppAlert severity="success">successカラーのサンプル</AppAlert>
-      <FullWidthTabs />
+      <AppAlert title="Info" variant="standard" severity="info">
+        infoカラーのサンプル
+      </AppAlert>
+      <Slider />
       <Stack direction="row" spacing={2} m={2}>
         <Button variant="outlined" color="success" onClick={handleModeChange}>
           Successボタン
@@ -56,12 +70,8 @@ export default function Home() {
           NoticeRedボタン
         </Button>
       </Stack>
-      <Fab sx={{ position: 'absolute', bottom: 16, right: 16 }} color="secondary" aria-label="add">
-        <AppIcon icon="add" />
-      </Fab>
-      <Snackbar open={true}>
-        <Alert severity="warning">warningメッセージサンプル</Alert>
-      </Snackbar>
+      <AppFab color="secondary" />
+      <AlertSnackbar openFlg={true} message="スナックバーのコンポーネント" />
       <DepositWithdraw />
       <SalesByCountries />
       <StatisticsCard />

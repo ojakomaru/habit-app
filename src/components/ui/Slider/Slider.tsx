@@ -12,7 +12,7 @@ type TabPanelProps = React.PropsWithChildren<{
   index: number;
   value: number;
 }>;
-
+// memo:別コンポーネントにしたところchildrenの挙動にバグが発生した
 function TabPanel({ children, value, index }: TabPanelProps) {
   return (
     <div
@@ -37,7 +37,11 @@ function a11yProps(index: number) {
   };
 }
 
-function FullWidthTabs() {
+/**
+ * Swiperを利用したタブ付きコンポーネント
+ * @returns
+ */
+function Slider() {
   const [swiper, setSwiper] = React.useState<SwiperCore | null>(null);
   const [value, setValue] = React.useState(0);
 
@@ -94,4 +98,4 @@ function FullWidthTabs() {
   );
 }
 
-export default FullWidthTabs;
+export default Slider;

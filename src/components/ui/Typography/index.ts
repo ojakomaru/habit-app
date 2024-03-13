@@ -1,3 +1,3 @@
-import Typography from './Typogarphy';
+import Typography from './Typogarphy'
 
-export { Typography };
+export { Typography }

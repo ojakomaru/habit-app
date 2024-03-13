@@ -23,11 +23,9 @@ interface RowType {
   designation: string
 }
 
-interface StatusObj {
-  [key: string]: {
-    color: ThemeColor
-  }
-}
+type StatusObj = Record<string, {
+  color: ThemeColor
+}>
 
 const rows: RowType[] = [
   {

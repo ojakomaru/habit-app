@@ -1,5 +1,5 @@
-import { FunctionComponent } from 'react';
-import { AppIconProps } from '../AppIcon';
+import { type FunctionComponent } from 'react'
+import { type AppIconProps } from '../AppIcon'
 
 const LogoIcon: FunctionComponent<AppIconProps> = (props) => {
   return (
@@ -39,7 +39,7 @@ const LogoIcon: FunctionComponent<AppIconProps> = (props) => {
 	c-0.1,0.2-0.1,0.5-0.1,0.8C28.3,26.5,28.4,26.8,28.4,27z"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default LogoIcon;
+export default LogoIcon

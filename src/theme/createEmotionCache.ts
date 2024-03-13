@@ -1,4 +1,4 @@
-import createCache, { EmotionCache } from '@emotion/cache';
+import createCache, { type EmotionCache } from '@emotion/cache'
 
 /**
  * .prependオプションをtrueに設定してemotionキャッシュを作成します。
@@ -6,8 +6,8 @@ import createCache, { EmotionCache } from '@emotion/cache';
  * CSSモジュールのような他のスタイリングソリューションでMUIスタイルを上書きすることができます。
  * @returns {EmotionCache}
  */
-export function createEmotionCache(): EmotionCache {
-  return createCache({ key: 'css', prepend: true });
+export function createEmotionCache (): EmotionCache {
+  return createCache({ key: 'css', prepend: true })
 }
 
-export default createEmotionCache;
+export default createEmotionCache

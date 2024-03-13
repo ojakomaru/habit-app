@@ -1,10 +1,10 @@
-import { IconKeys } from "@/components/icons"
+import { type IconKeys } from '@/components/icons'
 
-export type SiteConfig = {
+export interface SiteConfig {
   name: string
   author: string
   description: string
-  keywords: Array<string>
+  keywords: string[]
   url: {
     base: string
     author: string
@@ -22,36 +22,36 @@ export type NavItem = {
   icon?: IconKeys
 } & (
   | {
-      href: string
-      items?: never
-    }
+    href: string
+    items?: never
+  }
   | {
-      href?: string
-      items: NavLink[]
-    }
+    href?: string
+    items: NavLink[]
+  }
 )
 
-export type Navigation = {
+export interface Navigation {
   data: NavItem[]
 }
 
-export type ActivityEntry = {
+export interface ActivityEntry {
   name: string
   count: number | null
   color: string
 }
 
-export type ActivityByDate = {
+export interface ActivityByDate {
   date: string
   count: number
 }
 
-export type DateRange = {
+export interface DateRange {
   from: Date
   to: Date
 }
 
-export type SearchParams = {
+export interface SearchParams {
   from: string
   to: string
 }

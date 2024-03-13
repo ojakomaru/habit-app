@@ -1,5 +1,5 @@
 // ** React Imports
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'

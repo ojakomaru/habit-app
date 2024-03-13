@@ -1,15 +1,15 @@
 declare module '@mui/material/styles' {
   interface Palette {
-    noticeRed: Palette['primary'];
+    noticeRed: Palette['primary']
   }
   interface PaletteOptions {
-    noticeRed?: PaletteOptions['primary'];
+    noticeRed?: PaletteOptions['primary']
   }
 }
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
-    noticeRed: true;
+    noticeRed: true
   }
 }
 
-export {};
+export {}

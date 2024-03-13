@@ -1,3 +1,3 @@
-import AppAlert from './AppAlert';
+import AppAlert from './AppAlert'
 
-export { AppAlert as default, AppAlert };
+export { AppAlert as default, AppAlert }

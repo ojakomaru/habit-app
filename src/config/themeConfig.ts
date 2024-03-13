@@ -1,9 +1,9 @@
 // ** MUI Imports
-import { PaletteMode } from '@mui/material'
+import { type PaletteMode } from '@mui/material'
 
 type ContentWidth = 'full' | 'boxed'
 
-type ThemeConfig = {
+interface ThemeConfig {
   mode: PaletteMode
   templateName: string
   routingLoader: boolean

@@ -1,5 +1,5 @@
 // ** React Imports
-import { ReactElement } from 'react'
+import { type ReactElement } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
