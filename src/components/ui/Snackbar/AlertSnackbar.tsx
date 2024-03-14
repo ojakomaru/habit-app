@@ -1,6 +1,6 @@
-import { Snackbar, SnackbarProps } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import MuiAlert from "@mui/material/Alert";
+import { Snackbar, SnackbarProps } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
+import React, { useEffect, useState } from 'react';
 
 type Props = {
   openFlg: boolean;
@@ -10,7 +10,7 @@ type Props = {
  * 一定時間で閉じるスナックバーを表示します
  * @param openFlg -Alert起動のきっかけとなるフラグ
  * @param message -Alertに表示したいメッセージ
- * @returns 
+ * @returns
  */
 const AlertSnackbar = ({ openFlg, message, ...rest }: Props) => {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,7 @@ const AlertSnackbar = ({ openFlg, message, ...rest }: Props) => {
     event?: React.SyntheticEvent | Event,
     reason?: string
   ) => {
-    if (reason === "clickaway") return;
+    if (reason === 'clickaway') return;
     setOpen(false);
   };
   return (
@@ -31,7 +31,7 @@ const AlertSnackbar = ({ openFlg, message, ...rest }: Props) => {
       open={open}
       autoHideDuration={4000}
       onClose={handleClose}
-      anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       {...rest}
     >
       <MuiAlert
@@ -39,7 +39,7 @@ const AlertSnackbar = ({ openFlg, message, ...rest }: Props) => {
         variant="filled"
         onClose={handleClose}
         severity="warning"
-        sx={{ width: "100%" }}
+        sx={{ width: '100%' }}
       >
         {message}
       </MuiAlert>

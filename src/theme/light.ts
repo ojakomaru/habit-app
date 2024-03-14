@@ -1,5 +1,5 @@
-import { type ThemeOptions } from '@mui/material'
-import { PALETTE_COLORS } from './colors'
+import { type ThemeOptions } from '@mui/material';
+import { PALETTE_COLORS } from './colors';
 
 /**
  * MUI theme options for "Light Mode"
@@ -9,14 +9,14 @@ export const LIGHT_THEME: ThemeOptions = {
     mode: 'light',
     background: {
       paper: '#c0dbee', // Background of "Paper" based component
-      default: '#FFFFFF'
+      default: '#FFFFFF',
     },
-    ...PALETTE_COLORS
+    ...PALETTE_COLORS,
   },
   spacing: 8,
   shape: {
-    borderRadius: 4
-  }
-}
+    borderRadius: 4,
+  },
+};
 
-export default LIGHT_THEME
+export default LIGHT_THEME;

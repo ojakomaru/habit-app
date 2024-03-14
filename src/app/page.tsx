@@ -9,21 +9,22 @@ import {
   Stack,
   Toolbar,
 } from '@mui/material';
-import AppIcon from '../components/ui/AppIcon/AppIcon';
-import { useEventSwitchDarkMode } from '../hooks';
-import DepositWithdraw from '../components/base/DepositWithdraw';
+Withdraw';
 import SalesByCountries from '../components/base/SalesByCountries';
+import StatisticsCard from '../components/base/StatisticsCard';
+import Table from '../components/base/Table';
 import TotalEarning from '../components/base/TotalEarning';
 import WeeklyOverview from '../components/base/WeeklyOverview';
-import Table from '../components/base/Table';
-import StatisticsCard from '../components/base/StatisticsCard';
-import Spinner from '../components/ui/Spinner/Spinner';
-import { Typography } from '../components/ui/Typography';
-import { Button } from '../components/ui/Button';
 import AppAlert from '../components/ui/AppAlert';
-import Slider from '../components/ui/Slider';
 import AppFab from '../components/ui/AppFab/AppFab';
+import AppIcon from '../components/ui/AppIcon/AppIcon';
+import { Button } from '../components/ui/Button';
+import Slider from '../components/ui/Slider';
 import AlertSnackbar from '../components/ui/Snackbar/AlertSnackbar';
+import Spinner from '../components/ui/Spinner/Spinner';
+import { Typography } from '../componenimport DepositWithdraw from '../components/base/Deposit
+ts/ui/Typography';
+import { useEventSwitchDarkMode } from '../hooks';
 
 export default function Home() {
   const modeChange = useEventSwitchDarkMode();

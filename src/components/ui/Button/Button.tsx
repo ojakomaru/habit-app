@@ -1,7 +1,7 @@
-'use client'
-import { type FC, type ReactNode, useMemo } from 'react'
-import { Button as MuiButton, type ButtonProps } from '@mui/material'
-import { AppIcon } from '../AppIcon'
+'use client';
+import { Button as MuiButton, type ButtonProps } from '@mui/material';
+import { type FC, type ReactNode, useMemo } from 'react';
+import { AppIcon } from '../AppIcon';
 
 const MUI_BUTTON_COLORS = [
   'inherit',
@@ -10,14 +10,15 @@ const MUI_BUTTON_COLORS = [
   'success',
   'error',
   'info',
-  'warning'
-]
+  'warning',
+];
 
-export interface AppButtonProps extends Omit<ButtonProps, 'color' | 'endIcon' | 'startIcon'> {
-  color?: string // Not only 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
-  endIcon?: string | ReactNode
-  text?: string // .label の代替
-  startIcon?: string | ReactNode
+export interface AppButtonProps
+  extends Omit<ButtonProps, 'color' | 'endIcon' | 'startIcon'> {
+  color?: string; // Not only 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
+  endIcon?: string | ReactNode;
+  text?: string; // .label の代替
+  startIcon?: string | ReactNode;
 }
 
 /**
@@ -45,40 +46,37 @@ const Button: FC<AppButtonProps> = ({
   // startIconが文字列かコンポーネントで設定されていなければundefined
   const iconStart: ReactNode = useMemo(
     () =>
-      !startIcon
-        ? undefined
-        : typeof startIcon === 'string'
-          ? (
+      !startIcon ? undefined : typeof startIcon === 'string' ? (
         <AppIcon icon={String(startIcon)} />
-            )
-          : (
-              startIcon
-            ),
+      ) : (
+        startIcon
+      ),
     [startIcon]
-  )
+  );
 
   const iconEnd: ReactNode = useMemo(
     () =>
-      !endIcon
-        ? undefined
-        : typeof endIcon === 'string'
-          ? (
+      !endIcon ? undefined : typeof endIcon === 'string' ? (
         <AppIcon icon={String(endIcon)} />
-            )
-          : (
-              endIcon
-            ),
+      ) : (
+        endIcon
+      ),
     [endIcon]
-  )
+  );
 
   // MUI規定のカラーコードか判定
-  const isMuiColor = useMemo(() => MUI_BUTTON_COLORS.includes(propColor), [propColor])
-  const colorToRender = isMuiColor ? (propColor as ButtonProps['color']) : 'inherit'
+  const isMuiColor = useMemo(
+    () => MUI_BUTTON_COLORS.includes(propColor),
+    [propColor]
+  );
+  const colorToRender = isMuiColor
+    ? (propColor as ButtonProps['color'])
+    : 'inherit';
   // sxPropsを展開
   const sxToRender = {
     ...propSx,
-    ...(isMuiColor ? {} : { color: propColor })
-  }
+    ...(isMuiColor ? {} : { color: propColor }),
+  };
 
   return (
     <MuiButton
@@ -91,7 +89,7 @@ const Button: FC<AppButtonProps> = ({
     >
       {children || text}
     </MuiButton>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
