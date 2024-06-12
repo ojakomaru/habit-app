@@ -23,7 +23,7 @@ type AppFabProps = {
  * @param color -MUIのプロパティに準拠
  * @returns
  */
-const AppFab = ({ icon, color = 'secondary', sx, ...rest }: AppFabProps) => {
+const AppFab = ({ icon, color = 'secondary', ...rest }: AppFabProps) => {
   const isMobile: boolean = useMediaQuery('(min-width:1000px)');
   return (
     <Fab

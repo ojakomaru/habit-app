@@ -1,7 +1,7 @@
-import { Apps } from '@mui/icons-material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
+// eslint-disable-next-line import/no-named-as-default
 import AppStore from '../store';
 import { AppThemeProvider } from '../theme';
 import NextAuthProvider from './api/auth/NextAuthProvider';
